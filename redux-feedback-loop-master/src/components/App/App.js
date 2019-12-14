@@ -8,7 +8,7 @@ import mapStoreToProps from '../redux/mapStoreToProps';
 import './App.css';
 
 //React-Router
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route,} from 'react-router-dom';
 import Feeling from '../pages/Feeling/Feeling';
 import Content from '../pages/Content/Content';
 import Support from '../pages/Support/Support';
@@ -16,33 +16,7 @@ import Comments from '../pages/Comments/Comments';
 import Review from '../pages/Review/Review';
 import ThankYou from '../pages/ThankYou/ThankYou'
 
-
-import axios from 'axios';
-
-
 class App extends Component {
-
-  componentDidMount(){
-    this.getFeedBack();
-  }
-
-  getFeedBack = () => {
-    axios({
-      method: 'GET',
-      url: '/feedback',
-    })
-    .then((response) => {
-      this.setState({
-        feedBack: response.data
-      }, () => {
-        console.log(this.state);
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
-
 
   render() {
     return (
