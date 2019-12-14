@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+
 // import axios from 'axios';
 
 class Feeling extends Component {
 
     state = {
         feeling: '',
+        flagged: '',
     }
 
     changeField = (event) => {
@@ -15,37 +17,32 @@ class Feeling extends Component {
         })
     }
 
+    validate = () => {
+        let flagged = '';
+
+        if(!this.state.feeling.includes('1','2','3','4','5')){
+            flagged = 'invalid number';
+        }
+        if(flagged){
+            this.setState({flagged});
+            return false;
+        }
+
+        return true;
+    }
+
     submitFeelingInfo = (event) => {
         event.preventDefault();
-
+        const isValid = this.validate();
+        if (isValid ) {
+            console.log(this.state);
+        }
         this.props.dispatch({
             type: 'ADD_FEELING',
             payload: this.state,
         });
         this.props.history.push('/content');
     }
-
-    // I dont really need this it's just nice to know my server is working.
-    // componentDidMount(){
-    //     this.getFeedBack();
-    //   }
-
-    //   getFeedBack = () => {
-    //     axios({
-    //       method: 'GET',
-    //       url: '/feedback',
-    //     })
-    //     .then((response) => {
-    //       this.setState({
-    //         feedBack: response.data
-    //       }, () => {
-    //         console.log(this.state);
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    //   }
 
     render() {
 
@@ -55,13 +52,14 @@ class Feeling extends Component {
                 <br />
                 <p>Feeling?</p>
                 <form onSubmit={this.submitFeelingInfo}>
-                <input
-                    type="number"
-                    placeholder="Pick a number 1-5"
-                    value={this.state.feeling}
-                    onChange={(event) => this.changeField(event, 'feeling')}
-                />
-                <button>Next</button>
+                    <input
+                        type="number"
+                        placeholder="Pick a number 1-5"
+                        value={this.state.feeling}
+                        onChange={(event) => this.changeField(event, 'feeling')}
+                    />
+                    <button>Next</button>
+                    <div>{this.state.flagged}</div>
                 </form>
             </div>
         )
