@@ -2,10 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import logger from 'react-logger';
+import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
+
+// const defaultFeedBackForm = {
+//     feeling: '',
+//     understanding: '',
+//     support: '',
+//     comments: '',
+//     flagged: '',
+//     date: '',
+// }
 
 const storeInstance = createStore(
     combineReducers({}),
