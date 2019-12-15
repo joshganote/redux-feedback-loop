@@ -12,7 +12,7 @@ const defaultFeedBackForm = {
     understanding: '',
     support: '',
     comments: '',
-    flagged: '',
+    flagged: false,
     date: '',
 }
 
@@ -21,7 +21,7 @@ const defaultFeedBackForm = {
         return {
             ...state,
             ...action.payload
-        };
+        } ;
     } else if (action.type === 'ADD_UNDERSTANDING') {
         return {
             ...state,

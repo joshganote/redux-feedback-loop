@@ -8,36 +8,41 @@ class Feeling extends Component {
 
     state = {
         feeling: '',
-        flagged: '',
+        feelingError: '',
     }
 
-    changeField = (event) => {
+    changeField = (event, inputKey) => {
         this.setState({
-            feeling: event.target.value
+            [inputKey]: event.target.value
         })
     }
 
     validate = () => {
-        let flagged = '';
+        // let flagged = '';
 
-        if(!this.state.feeling.includes('1','2','3','4','5')){
-            flagged = 'invalid number';
-        }
-        if(flagged){
-            this.setState({flagged});
-            return false;
-        }
+        // if(!this.state.feeling.includes('1','2','3','4','5')){
+        //    return flagged = 'invalid number';
+        // }
+        // if(flagged){
+        //     this.setState({flagged});
+        //     return false;
+        // }
+       
+        // // return true;
+        // let flagged = false;
+        // const error = {};
 
-        return true;
+        // if (this.state.feeling >= 6){
+        //     flagged = true;
+
+        // } 
+        
     }
 
     submitFeelingInfo = (event) => {
         event.preventDefault();
-        const isValid = this.validate();
-        if (isValid ) {
-            console.log(this.state);
-        }
-        this.props.dispatch({
+
+        this.props.dispatch({ 
             type: 'ADD_FEELING',
             payload: this.state,
         });
@@ -59,7 +64,7 @@ class Feeling extends Component {
                         onChange={(event) => this.changeField(event, 'feeling')}
                     />
                     <button>Next</button>
-                    <div>{this.state.flagged}</div>
+                    
                 </form>
             </div>
         )
