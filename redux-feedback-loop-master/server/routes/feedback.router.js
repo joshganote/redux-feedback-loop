@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
     console.log('adding feedback', newFeedBack);
 
     let queryText = `INSERT INTO "feedback" (feeling, understanding, support, comments)
-    VALUES ($1,$2,$3,$4);`;
-    pool.query(queryText, [newFeedBack.feeling, newFeedBack.understanding, 
-      newFeedBack.support, newFeedBack.comments])
+    VALUES ('${newFeedBack.feeling}', '${newFeedBack.understanding}', 
+    '${newFeedBack.support}', '${newFeedBack.comments}');`;
+    pool.query(queryText)
       .then(result => {
         res.sendStatus(201);
       })

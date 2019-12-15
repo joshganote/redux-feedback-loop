@@ -37,6 +37,8 @@ const defaultFeedBackForm = {
             ...state,
             ...action.payload
         };
+    } else if (action.type === 'CLEAR_FEEDBACK') {
+        return [];
     }
     return state;
 }

@@ -5,20 +5,9 @@ import Axios from 'axios';
 
 class Review extends Component {
 
-    state = {
-        newFeedBack: {
-            feeling: '',
-            understanding: '',
-            support: '',
-            comments: '',
-        }
-    }
-
     handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('adding feedback', this.state.newFeedBack);
-        this.postFeedBack(this.state.newFeedBack);
-        this.props.history.push('/thank-you"');
+        this.postFeedBack(this.props.store.submitFormReducer);
+        this.props.history.push('/thank-you');
     }
 
     postFeedBack(feedBackInfo) {
