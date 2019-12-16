@@ -6,6 +6,7 @@ import Axios from 'axios';
 class Review extends Component {
 
     handleSubmit = (event) => {
+        // grabs data off index.js 
         this.postFeedBack(this.props.store.submitFormReducer);
         this.props.history.push('/thank-you');
     }
@@ -34,6 +35,7 @@ class Review extends Component {
             <div>
 
                 <h3>Review Your Feedback</h3>
+                // had to take off the form tag since there are no inputs here
                 <div onClick={this.handleSubmit}>
                     <h4>Feelings: {this.props.store.submitFormReducer.feeling}</h4>
                     <h4>Understanding: {this.props.store.submitFormReducer.understanding}</h4>

@@ -15,9 +15,12 @@ class Feeling extends Component {
             feeling: event.target.value
         })
     }
-    // this will make sure 
+    // Didn't want to mess with creating a min and max value
+    // but this will make sure the user doesn't pick a number over 5
     validate = () => {
         if (this.state.feeling <=5){
+            // user will be sent to next page if valid number is given.
+            // same setup repeats on the next couple pages
             this.props.history.push('/content');
             return true;
         } else {
@@ -32,6 +35,7 @@ class Feeling extends Component {
             type: 'ADD_FEELING',
             payload: this.state,
         });
+        // if user selects an invalid number this will reset input on page reload
         this.setState({
             feeling: '',
         })
