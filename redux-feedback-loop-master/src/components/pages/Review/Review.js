@@ -32,10 +32,10 @@ class Review extends Component {
     render() {
 
         return (
+            // had to take off the form tag since there are no inputs here
             <div>
 
                 <h3>Review Your Feedback</h3>
-                // had to take off the form tag since there are no inputs here
                 <div onClick={this.handleSubmit}>
                     <h4>Feelings: {this.props.store.submitFormReducer.feeling}</h4>
                     <h4>Understanding: {this.props.store.submitFormReducer.understanding}</h4>
@@ -43,6 +43,7 @@ class Review extends Component {
                     <h4>Comments: {this.props.store.submitFormReducer.comments}</h4>
                     <button>Submit</button>
                 </div>
+                <br/>
                 <button onClick={this.previousPage}>Back</button>
             </div>
         )
