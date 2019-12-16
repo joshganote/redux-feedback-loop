@@ -52,6 +52,7 @@ class Content extends Component {
                     placeholder="Pick a number 1-5"
                     value={this.state.understanding}
                     onChange={(event) => this.changeField(event, 'understanding')}
+                    required
                 />
                 <button>Next</button>
                 </form>

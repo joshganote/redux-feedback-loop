@@ -11,11 +11,48 @@ To see this site in action you can visit http://localhost:3000/#/, but only afte
 
 ## Screen Shot
 
-<<<<<<< HEAD
-=======
 ![image](wireframes/SecondPage.png).
 ![image](wireframes/InvalidInput.png).
 ![image](wireframes/SubmitPage.png).
 
->>>>>>> 0a5778c0c4e34925fdde887215b406a63da35fb6
-Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
+## Installation
+
+Fork and clone repository
+
+1. Create a database named prime_feedback
+2. the queries in data.sql file will help create the table and give some initial data to test. This project
+is built on Postgres so you will need to have that installed. I recommend using Postico to run those queries.
+3. Once your editor is open run npm install
+4. npm run server in terminal
+5. npm run client in terminal
+6. the npm run client command will open a new browser tab for you
+
+## Usage 
+
+1. On the 'How are you feeling?' page, the User will be provided with an input field and 'next' button. There is a place holder which tells the user to pick a number 1-5. If the user doesn't pick one of those numbers, or doesn't pick a number at all, an alert message will appear and the input will reset. If the user selects a valid input they will be directed to the next page by clicking 'Next'.
+2. On the 'Understanding', 'Support', and 'Comments' page the same setup will apply, but this time there is a 'Back' button. The user will have the option to return to the previous page and change their answer.
+3. On the 'Review Your Feedback' page the user can see all of their inputs, and still opt to go back, or submit.
+4. By hitting the submit button the input values will post to your database.
+5. After the feedback is submitted the user will be taken to one last page, where they are thanked for their submission,and given the opportunity to repeat the process. Creating the 'loop' in this redux feedback loop project.
+
+## Built With
+
+React
+Redux
+Axios
+Node Modules
+PostgresSQL
+Postico
+Postman
+
+## Acknowledgement
+
+Thanks to Prime Digital Academy in Kansas City who equipped and helped me to make this application a reality.
+
+## Support
+
+if you would to give your own feedback to me, please email me at j.ganote0825@gmail.com
+
+
+
+

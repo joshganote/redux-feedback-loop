@@ -42,7 +42,7 @@ class Support extends Component {
 
         return(
             <div>
-                 <h3>How well are you understanding the content?</h3>
+                 <h3>How well are you being supported?</h3>
                 <br />
                 <p>Support?</p>
                 <form onSubmit={this.submitSupportInfo}>
@@ -52,6 +52,7 @@ class Support extends Component {
                     placeholder="Pick a number 1-5"
                     value={this.state.support}
                     onChange={(event) => this.changeField(event, 'support')}
+                    required
                 />
                 <button>Next</button>
                 </form>
