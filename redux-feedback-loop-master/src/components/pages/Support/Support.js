@@ -13,14 +13,26 @@ class Support extends Component {
         })
     }
 
+    validate = () => {
+        if (this.state.support <=5){
+            this.props.history.push('/comments');
+            return true;
+        } else {
+            return alert('enter valid number')
+        }
+    }
+
     submitSupportInfo = (event) => {
         event.preventDefault();
-
+        this.validate();
         this.props.dispatch({
             type: 'ADD_SUPPORT',
             payload: this.state,
         });
-        this.props.history.push('/comments');
+    }
+
+    previousPage = (event) => {
+        this.props.history.push('/content');
     }
 
     render(){
@@ -31,6 +43,7 @@ class Support extends Component {
                 <br />
                 <p>Support?</p>
                 <form onSubmit={this.submitSupportInfo}>
+                <button onClick={this.previousPage}>Back</button> 
                 <input
                     type="number"
                     placeholder="Pick a number 1-5"

@@ -13,14 +13,26 @@ class Content extends Component {
         })
     }
 
+    validate = () => {
+        if (this.state.understanding <=5){
+            this.props.history.push('/support');
+            return true;
+        } else {
+            return alert('enter valid number')
+        }
+    }
+
     submitUnderstandingInfo = (event) => {
         event.preventDefault();
-
+        this.validate();
         this.props.dispatch({
             type: 'ADD_UNDERSTANDING',
             payload: this.state,
         });
-        this.props.history.push('/support');
+    }
+
+    previousPage = (event) => {
+        this.props.history.push('/');
     }
 
     render(){
@@ -31,6 +43,7 @@ class Content extends Component {
                 <br />
                 <p>Understanding?</p>
                 <form onSubmit={this.submitUnderstandingInfo}>
+                <button onClick={this.previousPage}>Back</button>    
                 <input
                     type="number"
                     placeholder="Pick a number 1-5"

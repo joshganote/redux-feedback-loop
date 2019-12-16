@@ -15,12 +15,15 @@ class Comments extends Component {
 
     submitCommentInfo = (event) => {
         event.preventDefault();
-
         this.props.dispatch({
             type: 'ADD_COMMENT',
             payload: this.state,
         });
         this.props.history.push('/review');
+    }
+
+    previousPage = (event) => {
+        this.props.history.push('/support');
     }
 
     render(){
@@ -31,6 +34,7 @@ class Comments extends Component {
                 <br />
                 <p>Comments</p>
                 <form onSubmit={this.submitCommentInfo}>
+                <button onClick={this.previousPage}>Back</button> 
                 <input
                     type="text"
                     placeholder="Comment"

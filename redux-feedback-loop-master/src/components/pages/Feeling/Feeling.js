@@ -2,51 +2,36 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-// import axios from 'axios';
 
 class Feeling extends Component {
 
     state = {
         feeling: '',
-        feelingError: '',
-    }
+    };
 
-    changeField = (event, inputKey) => {
+    changeField = (event) => {
+        event.preventDefault();
         this.setState({
-            [inputKey]: event.target.value
+            feeling: event.target.value
         })
     }
-
+    // this will make sure 
     validate = () => {
-        // let flagged = '';
-
-        // if(!this.state.feeling.includes('1','2','3','4','5')){
-        //    return flagged = 'invalid number';
-        // }
-        // if(flagged){
-        //     this.setState({flagged});
-        //     return false;
-        // }
-       
-        // // return true;
-        // let flagged = false;
-        // const error = {};
-
-        // if (this.state.feeling >= 6){
-        //     flagged = true;
-
-        // } 
-        
+        if (this.state.feeling <=5){
+            this.props.history.push('/content');
+            return true;
+        } else {
+            return alert('enter valid number')
+        }
     }
 
     submitFeelingInfo = (event) => {
         event.preventDefault();
-
-        this.props.dispatch({ 
+        this.validate();
+        this.props.dispatch({
             type: 'ADD_FEELING',
             payload: this.state,
         });
-        this.props.history.push('/content');
     }
 
     render() {
@@ -62,13 +47,72 @@ class Feeling extends Component {
                         placeholder="Pick a number 1-5"
                         value={this.state.feeling}
                         onChange={(event) => this.changeField(event, 'feeling')}
+                        required
                     />
                     <button>Next</button>
-                    
+
                 </form>
+
             </div>
         )
     }
 }
 
 export default connect(mapStoreToProps)(Feeling);
+
+// playing with different input validation
+
+
+      // let flagged = '';
+
+        // if(!this.state.feeling.includes('1','2','3','4','5')){
+        //    return flagged = 'invalid number';
+        // }
+        // if(flagged){
+        //     this.setState({flagged});
+        //     return false;
+        // }
+
+        // // return true;
+        // let flagged = false;
+        // const error = {};
+
+        // if (this.state.feeling >= 6){
+        //     flagged = true;
+
+        // } 
+
+    //     <Textbox onSubmit={this.submitFeelingInfo}
+    //     id={'number'}
+    //     type="text"
+    //     value={number}
+    //     placeholder="Number 1-5"
+    //     onChange={(number, event) => {this.setState({number});
+    //     console.log(event)}}
+    //     validationOption={{
+    //         type:'number',
+    //         min: 0,
+    //         max: 5
+    //     }}
+
+    //     />
+    //   <button>Next</button>
+
+    // handleValidation() {
+        //     let feeling = this.state.feeling;
+        //     let error = '';
+        //     let formIsValid = true;
+    
+        //     if(!feeling){
+        //         formIsValid = false;
+        //         error["feeling"] = "Cannot be empty";
+        //     }
+        //     if (typeof feeling !== "undefined") {
+        //         if(!feeling.match('1','2','3','4','5')){
+        //             formIsValid = false;
+        //             error["feeling"] = "Pick number 1-5";
+        //         }
+        //     }
+        //     this.setState({error: error});
+        //     return formIsValid
+        // }
