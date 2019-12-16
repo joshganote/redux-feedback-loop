@@ -11,7 +11,4 @@ To see this site in action you can visit http://localhost:3000/#/, but only afte
 
 ## Screen Shot
 
-[image](/Users/apollo/Prime/Tier2/Week11/Week11_Weekend/redux-feedback-loop-master/wireframes/InvalidInput.png).
-[image](/Users/apollo/Prime/Tier2/Week11/Week11_Weekend/redux-feedback-loop-master/wireframes/SecondPage.png).
-[image](/Users/apollo/Prime/Tier2/Week11/Week11_Weekend/redux-feedback-loop-master/wireframes/SubmitPage.png).
 Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
