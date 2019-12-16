@@ -11,4 +11,11 @@ To see this site in action you can visit http://localhost:3000/#/, but only afte
 
 ## Screen Shot
 
+<<<<<<< HEAD
+=======
+![image](wireframes/SecondPage.png).
+![image](wireframes/InvalidInput.png).
+![image](wireframes/SubmitPage.png).
+
+>>>>>>> 0a5778c0c4e34925fdde887215b406a63da35fb6
 Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
