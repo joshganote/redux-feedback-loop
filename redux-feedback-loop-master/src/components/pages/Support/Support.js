@@ -29,6 +29,9 @@ class Support extends Component {
             type: 'ADD_SUPPORT',
             payload: this.state,
         });
+        this.setState({
+            support: '',
+        })
     }
 
     previousPage = (event) => {

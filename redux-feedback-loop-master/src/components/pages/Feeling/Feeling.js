@@ -32,6 +32,9 @@ class Feeling extends Component {
             type: 'ADD_FEELING',
             payload: this.state,
         });
+        this.setState({
+            feeling: '',
+        })
     }
 
     render() {

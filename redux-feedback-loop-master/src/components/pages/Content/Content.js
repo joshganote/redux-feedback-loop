@@ -29,6 +29,9 @@ class Content extends Component {
             type: 'ADD_UNDERSTANDING',
             payload: this.state,
         });
+        this.setState({
+            understanding: '',
+        })
     }
 
     previousPage = (event) => {
