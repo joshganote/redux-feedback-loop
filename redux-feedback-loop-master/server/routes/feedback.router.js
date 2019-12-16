@@ -18,6 +18,13 @@ router.get('/', (req, res) => {
     let newFeedBack = req.body;
     console.log('adding feedback', newFeedBack);
 
+    // originally I had my queryText set up like
+    // let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    // VALUES ($1,$2,$3,$4);`;
+    // pool.query(queryText, [newFeedBack.feeling, newFeedBack.understanding, newFeedBack.support, newFeedBack.comments])
+    // and I kept getting null values when using Postman. I compared code with Luke to get a solution that worked.
+    // was it a syntax issue or just not properly executed? 
+
     let queryText = `INSERT INTO "feedback" (feeling, understanding, support, comments)
     VALUES ('${newFeedBack.feeling}', '${newFeedBack.understanding}', 
     '${newFeedBack.support}', '${newFeedBack.comments}');`;

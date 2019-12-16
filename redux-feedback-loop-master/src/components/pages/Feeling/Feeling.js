@@ -16,7 +16,14 @@ class Feeling extends Component {
         })
     }
     // Didn't want to mess with creating a min and max value
-    // but this will make sure the user doesn't pick a number over 5
+    // but at least this will make sure the user doesn't pick a number over 5
+    // I worked waaaay to hard on this, probably two or three hours worth.
+    // I googled input validation and watched 4 different videos and looked at
+    // different websites thinking I needed a complicated solution. At one point
+    // I installed react-inputs-validation from npm and tried working with that. All those things 
+    // I tried working with are at the bottom of this page. Just went back to your mantra "it's just javascript"
+    //  Really happy with how effective this small amount of code is
+    
     validate = () => {
         if (this.state.feeling <=5){
             // user will be sent to next page if valid number is given.
@@ -35,7 +42,7 @@ class Feeling extends Component {
             type: 'ADD_FEELING',
             payload: this.state,
         });
-        // if user selects an invalid number this will reset input on page reload
+        // if user selects an invalid number this will reset input
         this.setState({
             feeling: '',
         })
@@ -84,7 +91,7 @@ export default connect(mapStoreToProps)(Feeling);
         // let flagged = false;
         // const error = {};
 
-        // if (this.state.feeling >= 6){
+        // if (this.state.feeling >= 5){
         //     flagged = true;
 
         // } 

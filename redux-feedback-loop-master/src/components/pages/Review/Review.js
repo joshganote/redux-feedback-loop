@@ -10,7 +10,7 @@ class Review extends Component {
         this.postFeedBack(this.props.store.submitFormReducer);
         this.props.history.push('/thank-you');
     }
-
+    // sends data from the reducer off to the server
     postFeedBack(feedBackInfo) {
         Axios({
             method: 'POST',

@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
+// default data structure take from data.sql
 const defaultFeedBackForm = {
     feeling: '',
     understanding: '',
@@ -16,6 +17,8 @@ const defaultFeedBackForm = {
     date: '',
 }
 
+// this will retrieve all dispatch calls and clear out array after 
+// feedback is submitted and take back the start of the loop
  const submitFormReducer = (state= defaultFeedBackForm, action) => {
     if (action.type === 'ADD_FEELING') {
         return {
@@ -42,6 +45,9 @@ const defaultFeedBackForm = {
     }
     return state;
 }
+
+// I can use submitFormReducer in the Review component to send all
+// data to server
 const storeInstance = createStore(
     combineReducers({
         submitFormReducer
